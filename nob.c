@@ -7,7 +7,8 @@ int main(int argc, char **argv)
     Nob_Cmd cmd = {0};
     nob_cmd_append(&cmd, "cc", "-Wall", "-Wextra");
     nob_cmd_append(&cmd, "-I./raylib-5.5_macos/include");
-    nob_cmd_append(&cmd, "-o", "main", "main.c");
+    nob_cmd_append(&cmd, "-o", "main");
+    nob_cmd_append(&cmd, "main.c", "cJSON/cJSON.c");
     nob_cmd_append(&cmd, "-rpath", "@executable_path/raylib-5.5_macos/lib");
     nob_cmd_append(&cmd, "-L./raylib-5.5_macos/lib", "-lraylib");
     if (!nob_cmd_run_sync_and_reset(&cmd)) return 1;
